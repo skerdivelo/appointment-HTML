@@ -19,7 +19,12 @@ console.log(num + " Inizio")
 
 //function
 function ClearList(){
-    bodyTask.innerHTML=""
+    //clear the checked rows
+    let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+    checkboxes.forEach((checkbox) => {
+        checkbox.parentNode.parentNode.remove()
+    })
+    localStorage.setItem("List", bodyTask.innerHTML)
 }
 
 function AddToList(id, date, text){
